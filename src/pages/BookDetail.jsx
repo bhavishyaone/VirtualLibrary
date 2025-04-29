@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../styles.css';
+import { useFavorites } from '../context/FavoritesContext';
 
 // Helper function to handle fetch with timeout
 const fetchWithTimeout = async (url, options = {}, timeout = 10000) => {
@@ -34,6 +35,7 @@ const fetchWithTimeout = async (url, options = {}, timeout = 10000) => {
 
 function BookDetail() {
   const { id } = useParams();
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -62,6 +64,14 @@ function BookDetail() {
 
     fetchBookDetails();
   }, [id]);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite(book.id)) {
+      removeFavorite(book.id);
+    } else {
+      addFavorite(book);
+    }
+  };
 
   if (loading) {
     return (
@@ -128,6 +138,13 @@ function BookDetail() {
               Preview Book
             </a>
           )}
+          <button 
+            className={`favorite-button ${isFavorite(book.id) ? 'active' : ''}`}
+            onClick={handleFavoriteClick}
+            aria-label={isFavorite(book.id) ? "Remove from favorites" : "Add to favorites"}
+          >
+            {isFavorite(book.id) ? '❤️' : '🤍'}
+          </button>
         </div>
 
         <div className="book-info">

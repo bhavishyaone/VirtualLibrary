@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles.css';
+import { useFavorites } from '../context/FavoritesContext';
 
 const BookSkeleton = () => (
   <div className="book-card skeleton">
@@ -44,6 +45,7 @@ const fetchWithTimeout = async (url, options = {}, timeout = 10000) => {
 };
 
 function BrowseBooks() {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -98,6 +100,14 @@ function BrowseBooks() {
       const nextPage = page + 1;
       setPage(nextPage);
       fetchBooks(searchQuery, nextPage);
+    }
+  };
+
+  const handleFavoriteClick = (book) => {
+    if (isFavorite(book.id)) {
+      removeFavorite(book.id);
+    } else {
+      addFavorite(book);
     }
   };
 
@@ -156,6 +166,16 @@ function BrowseBooks() {
                   <div className="book-overlay">
                     <span>View Details</span>
                   </div>
+                  <button 
+                    className={`favorite-button ${isFavorite(book.id) ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleFavoriteClick(book);
+                    }}
+                    aria-label={isFavorite(book.id) ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    {isFavorite(book.id) ? '❤️' : '🤍'}
+                  </button>
                 </div>
                 <div className="book-info">
                   <h3>{book.title}</h3>
