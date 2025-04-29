@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import Toast from '../components/Toast';
+import Toast from '../pages/Toast';
 
 const FavoritesContext = createContext();
 
