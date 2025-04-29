@@ -1,0 +1,109 @@
+/* Favorites Page */
+.favorites-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background-color);
+}
+
+.favorites-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.favorites-page h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--gradient-dark);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.favorites-empty h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 0;
+}
+
+.favorites-empty h1::after {
+  display: none;
+}
+
+.favorites-empty p {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.book-card {
+  background: rgba(24, 24, 24, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+.favorite-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1;
+  box-shadow: var(--shadow);
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button.active {
+  background: var(--gradient-accent);
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .favorites-page {
+    padding: 1.5rem;
+  }
+  
+  .favorites-page h1 {
+    font-size: 2rem;
+  }
+  
+  .favorite-button {
+    width: 35px;
+    height: 35px;
+  }
+} 

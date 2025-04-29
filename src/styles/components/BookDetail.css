@@ -1,0 +1,358 @@
+/* Book Detail Page */
+.book-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background-color);
+}
+
+.book-detail-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+}
+
+.book-detail-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.book-cover {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 2/3;
+}
+
+.book-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  transition: var(--transition);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.preview-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book-cover:hover .preview-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.book-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.book-info h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.book-info .author {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.book-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.book-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+.book-description h2,
+.book-subjects h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.book-description p,
+.book-info p,
+.book-subjects {
+  color: var(--accent-color);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.book-description {
+  margin-bottom: 2rem;
+}
+
+.book-subjects h2 {
+  margin-bottom: 1.5rem;
+}
+
+.subject-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subject-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(24, 24, 24, 0.8);
+  border-radius: 8px;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.subject-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.subject-tag:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.subject-tag:hover::before {
+  opacity: 0.2;
+}
+
+.similar-books {
+  margin-top: 3rem;
+}
+
+.similar-books h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.similar-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.similar-book-card {
+  background: rgba(24, 24, 24, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.similar-book-card:hover {
+  transform: translateY(-5px);
+}
+
+.similar-book-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.similar-book-card h3 {
+  padding: 1rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.similar-book-card p {
+  padding: 0 1rem 1rem;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.book-detail.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.skeleton-cover,
+.skeleton-title,
+.skeleton-author,
+.skeleton-description {
+  background: linear-gradient(90deg, #181818 0%, #242424 50%, #181818 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-cover {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.skeleton-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.skeleton-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.skeleton-author {
+  width: 60%;
+  height: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+}
+
+.skeleton-author::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.skeleton-description {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.skeleton-description::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .book-detail-content {
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-detail-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .book-cover {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .book-info h1::after {
+    width: 80px;
+  }
+  
+  .similar-books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+} 
