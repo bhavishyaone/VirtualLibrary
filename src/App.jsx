@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import BrowseBooks from './pages/BrowseBooks';
 import BookDetail from './pages/BookDetail';
+import LoginPage from './pages/LoginPage';
 import './styles.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <nav className="nav-links">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/browse" className="nav-link">Browse</Link>
+            <Link to="/login" className="nav-link login-button">Login</Link>
           </nav>
         </div>
       </header>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/browse" element={<BrowseBooks />} />
           <Route path="/book/:id" element={<BookDetail />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </main>
 
