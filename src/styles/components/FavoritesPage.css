@@ -62,7 +62,7 @@
   overflow: hidden;
   transition: var(--transition);
   position: relative;
-  border: 1px solid rgba(230, 57, 70, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .favorite-button {

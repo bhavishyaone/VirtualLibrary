@@ -27,7 +27,7 @@
 
 .back-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .book-detail-content {
@@ -156,14 +156,12 @@
 
 .subject-tag {
   padding: 0.5rem 1rem;
-  background: rgba(24, 24, 24, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
-  color: var(--accent-color);
+  color: var(--text-color);
   font-size: 0.9rem;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .subject-tag::before {
@@ -207,10 +205,11 @@
 }
 
 .similar-book-card {
-  background: rgba(24, 24, 24, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .similar-book-card:hover {
@@ -245,7 +244,7 @@
 .skeleton-title,
 .skeleton-author,
 .skeleton-description {
-  background: linear-gradient(90deg, #181818 0%, #242424 50%, #181818 100%);
+  background: linear-gradient(90deg, #000000 0%, #333333 50%, #000000 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
