@@ -23,7 +23,7 @@
 }
 
 .signup-container {
-  background: rgba(24, 24, 24, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 16px;
@@ -31,7 +31,7 @@
   width: 100%;
   max-width: 500px;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(230, 57, 70, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 1;
 }
@@ -94,7 +94,7 @@
 
 .signup-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .signup-footer {
