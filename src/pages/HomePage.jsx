@@ -1,14 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { track } from 'analytiq'
 
 function HomePage() {
+
+
+  useEffect(() => {
+    track('Home_page_view', { page: 'Home' })  
+    }, [])
+
+
   return (
     <div className="home-page">
       <div className="hero-content" style={{ maxWidth: 800, margin: '0 auto', padding: '2rem' }}>
         <h1>Welcome to BookVerse</h1>
         <p>Your digital library for exploring great books</p>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-          <Link to="/browse" className="browse-button">
+          <Link to="/browse" className="browse-button" onClick={() => track('browse_clicked', { location: 'home_hero' })}>
             Browse Books
           </Link>
         </div>
@@ -29,6 +38,6 @@ function HomePage() {
       </div>
     </div>
   )
-}
 
+}
 export default HomePage 
